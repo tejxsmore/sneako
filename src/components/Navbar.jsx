@@ -55,9 +55,9 @@ export default function Navbar() {
       )}
 
       {!matches && (
-        <div className="flex">
-          <div className="pr-3 md:pr-6 cursor-pointer z-50">
-            <a href="/favorite" className="pt-2 pr-3 md:pr-6">
+        <div className="flex items-center">
+          <div className="cursor-pointer z-50">
+            <a href="/favorite" className="pr-6">
               <span class="material-symbols-outlined">favorite</span>
             </a>
             <a href="/cart" className="">
