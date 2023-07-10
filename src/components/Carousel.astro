@@ -1,0 +1,10 @@
+---
+import "./Carousel.astro";
+
+const { title, otherImages } = Astro.props;
+let id = 0;
+---
+
+<div class="md:w-1/2 p-3 flex overflow-x-auto overflow-y-hidden">
+  {otherImages.map((src) => <img id={title + id} src={src} alt={title} />)}
+</div>

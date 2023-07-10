@@ -1,0 +1,41 @@
+---
+const { title, brand, image } = Astro.props;
+
+import HeadLayout from "./HeadLayout.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <HeadLayout {title} />
+  <body>
+    <div class="flex justify-between p-6">
+      <div class="flex">
+        <a href="/" class="pr-6">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <a href=`/${brand}` class=""
+          ><img src={image} alt=`${brand} logo` class="w-7" /></a
+        >
+      </div>
+      <div class="">
+        <a href="/favorite" class="pr-6">
+          <span class="material-symbols-outlined">favorite</span>
+        </a>
+        <a href="/cart" class="">
+          <span class="material-symbols-outlined">shopping_cart</span>
+        </a>
+      </div>
+    </div>
+    <slot />
+    <Footer />
+    <style is:global>
+      html {
+        font-family: system-ui, sans-serif;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+    </style>
+  </body>
+</html>

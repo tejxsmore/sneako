@@ -1,0 +1,35 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { id: 0 } },
+    { params: { id: 1 } },
+    { params: { id: 2 } },
+    { params: { id: 3 } },
+    { params: { id: 4 } },
+    { params: { id: 5 } },
+    { params: { id: 6 } },
+    { params: { id: 7 } },
+  ];
+}
+
+const { id } = Astro.params;
+
+import { running } from "../../../../../public/store/puma/running";
+import Details from "../../../../components/Details.astro";
+---
+
+{
+  id && (
+    <Details
+      title={running[id]?.title}
+      brand={running[id]?.brand}
+      brandLogo={running[id].brandLogo}
+      price={running[id]?.price}
+      color={running[id]?.title}
+      image={running[id]?.image}
+      category={running[id]?.category}
+      otherImages={running[id]?.otherImages}
+      description={running[id]?.description}
+    />
+  )
+}

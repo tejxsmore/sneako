@@ -1,0 +1,35 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { id: 0 } },
+    { params: { id: 1 } },
+    { params: { id: 2 } },
+    { params: { id: 3 } },
+    { params: { id: 4 } },
+    { params: { id: 5 } },
+    { params: { id: 6 } },
+    { params: { id: 7 } },
+  ];
+}
+
+const { id } = Astro.params;
+
+import { football } from "../../../../../public/store/adidas/football";
+import Details from "../../../../components/Details.astro";
+---
+
+{
+  id && (
+    <Details
+      title={football[id]?.title}
+      brand={football[id]?.brand}
+      brandLogo={football[id].brandLogo}
+      price={football[id]?.price}
+      color={football[id]?.title}
+      image={football[id]?.image}
+      category={football[id]?.category}
+      otherImages={football[id]?.otherImages}
+      description={football[id]?.description}
+    />
+  )
+}

@@ -1,0 +1,46 @@
+---
+import BrandLayout from "../../../layouts/BrandLayout.astro";
+import { sneakers } from "../../../../public/store/puma/sneakers";
+import Shoecard from "../../../components/Shoecard.astro";
+import Label from "../../../components/Label.astro";
+---
+
+<BrandLayout
+  title="Sneaker Spot - PUMA"
+  brand="puma"
+  image="https://seeklogo.com/images/P/puma-se-logo-ACC0F72575-seeklogo.com.png"
+>
+  <div class="p-3">
+    <Label brand="puma" type1="sneakers" type2="running" type3="football" />
+
+    <div class="flex flex-wrap">
+      {
+        sneakers.map(
+          ({
+            id,
+            title,
+            price,
+            color,
+            url,
+            category,
+            image,
+            otherImages,
+            description,
+          }) => (
+            <Shoecard
+              {id}
+              {title}
+              {price}
+              {color}
+              {url}
+              {category}
+              {otherImages}
+              {image}
+              {description}
+            />
+          )
+        )
+      }
+    </div>
+  </div>
+</BrandLayout>

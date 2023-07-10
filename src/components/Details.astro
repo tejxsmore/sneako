@@ -1,0 +1,31 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import Carousel from "./Carousel.astro";
+
+const {
+  title,
+  brand,
+  brandLogo,
+  price,
+  color,
+  category,
+  image,
+  otherImages,
+  description,
+} = Astro.props;
+---
+
+<BrandLayout {title} brand={brand} image={brandLogo}>
+  <div class="md:flex p-3">
+    <Carousel {title} {otherImages} />
+    <div class="md:w-1/2 p-3">
+      <h1 class="text-4xl font-bold text-gray-900 pb-3">{title}</h1>
+      <p class="text-gray-500 pb-3">{category}'s shoes</p>
+      <p class="py-3 text-2xl font-semibold">₹ {price.toLocaleString()}</p>
+      <p class="text-gray-500">incl. of taxes</p>
+      <p class="text-gray-500 pb-3">(Also includes all applicable duties)</p>
+      <p class="md:max-w-md text-justify py-3">{description}</p>
+      <p>• Color : {color}</p>
+    </div>
+  </div>
+</BrandLayout>

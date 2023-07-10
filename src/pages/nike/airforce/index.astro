@@ -1,0 +1,45 @@
+---
+import BrandLayout from "../../../layouts/BrandLayout.astro";
+import { airforce } from "../../../../public/store/nike/airforce";
+import Shoecard from "../../../components/Shoecard.astro";
+import Label from "../../../components/Label.astro";
+---
+
+<BrandLayout
+  title="Sneaker Spot - NIKE"
+  brand="nike"
+  image="https://static.nike.com/a/images/f_jpg,q_auto:eco/61b4738b-e1e1-4786-8f6c-26aa0008e80b/swoosh-logo-black.png"
+>
+  <div class="p-3">
+    <Label brand="nike" type1="airforce" type2="airjordan" type3="airmax" />
+    <div class="flex flex-wrap">
+      {
+        airforce.map(
+          ({
+            id,
+            title,
+            price,
+            color,
+            url,
+            category,
+            image,
+            otherImages,
+            description,
+          }) => (
+            <Shoecard
+              {id}
+              {title}
+              {price}
+              {color}
+              {url}
+              {category}
+              {image}
+              {otherImages}
+              {description}
+            />
+          )
+        )
+      }
+    </div>
+  </div>
+</BrandLayout>

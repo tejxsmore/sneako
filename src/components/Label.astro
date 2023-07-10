@@ -1,0 +1,9 @@
+---
+const { brand, type1, type2, type3 } = Astro.props;
+---
+
+<div class="pt-0 pb-12 text-center text-black font-semibold space-x-10">
+  <a href=`/${brand}/${type1}`>{type1.toUpperCase()}</a>
+  <a href=`/${brand}/${type2}`>{type2.toUpperCase()}</a>
+  <a href=`/${brand}/${type3}`>{type3.toUpperCase()}</a>
+</div>

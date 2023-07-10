@@ -1,0 +1,26 @@
+---
+const { title } = Astro.props;
+
+import HeadLayout from "./HeadLayout.astro";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <HeadLayout {title} />
+  <body>
+    <Navbar client:load />
+    <slot />
+    <Footer />
+    <style is:global>
+      html {
+        font-family: system-ui, sans-serif;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+    </style>
+  </body>
+</html>
