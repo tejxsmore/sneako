@@ -7,10 +7,31 @@ export default function Navbar() {
   const matches = useMediaQuery("(min-width: 1280px)");
 
   return (
-    <nav className="relative flex justify-between items-center p-6 pt-4 font-medium">
-      <div class="">
+    <nav className="relative flex justify-between items-center p-6 font-medium">
+      <div class="flex">
+        <div
+          onClick={() => setToggled((prevToggle) => !prevToggle)}
+          className="space-y-1.5 cursor-pointer z-50 pt-1 pr-6"
+        >
+          <motion.span
+            animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
+            className="block h-0.5 w-8 bg-black"
+          ></motion.span>
+          <motion.span
+            animate={{ width: toggled ? 0 : 32 }}
+            className="block h-0.5 w-6 bg-black"
+          ></motion.span>
+          <motion.span
+            animate={{
+              rotateZ: toggled ? -45 : 0,
+              y: toggled ? -8 : 0,
+              width: toggled ? 32 : 32,
+            }}
+            className="block h-0.5 w-4 bg-black"
+          ></motion.span>
+        </div>
         <a href="/">
-          <h1 className="text-2xl">SNEAKO</h1>
+          <h1 className="">SNEAKO</h1>
         </a>
       </div>
 
@@ -24,10 +45,10 @@ export default function Navbar() {
 
       {matches && (
         <div className="flex items-center">
-          <a href="/favorite" className="pt-2 pr-6">
+          <a href="/favorite" className="pr-6">
             <span class="material-symbols-outlined">favorite</span>
           </a>
-          <a href="/cart" className="pt-2">
+          <a href="/cart" className="">
             <span class="material-symbols-outlined">shopping_cart</span>
           </a>
         </div>
@@ -42,27 +63,6 @@ export default function Navbar() {
             <a href="/cart" className="">
               <span class="material-symbols-outlined">shopping_cart</span>
             </a>
-          </div>
-          <div
-            onClick={() => setToggled((prevToggle) => !prevToggle)}
-            className="space-y-1.5 cursor-pointer z-50 pt-1"
-          >
-            <motion.span
-              animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
-              className="block h-0.5 w-8 bg-black"
-            ></motion.span>
-            <motion.span
-              animate={{ width: toggled ? 0 : 32 }}
-              className="block h-0.5 w-6 bg-black"
-            ></motion.span>
-            <motion.span
-              animate={{
-                rotateZ: toggled ? -45 : 0,
-                y: toggled ? -8 : 0,
-                width: toggled ? 32 : 32,
-              }}
-              className="block h-0.5 w-4 bg-black"
-            ></motion.span>
           </div>
         </div>
       )}
