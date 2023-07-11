@@ -45,8 +45,8 @@ export default function Navbar() {
         </div>
       )}
 
-      {matches && (
-        <div className="flex items-center">
+      <div className="flex items-center">
+        <div className="cursor-pointer z-50">
           <a href="/favorite" className="pr-6">
             <span class="material-symbols-outlined">favorite</span>
           </a>
@@ -54,20 +54,7 @@ export default function Navbar() {
             <span class="material-symbols-outlined">shopping_cart</span>
           </a>
         </div>
-      )}
-
-      {!matches && (
-        <div className="flex items-center">
-          <div className="cursor-pointer z-50">
-            <a href="/favorite" className="pr-6">
-              <span class="material-symbols-outlined">favorite</span>
-            </a>
-            <a href="/cart" className="">
-              <span class="material-symbols-outlined">shopping_cart</span>
-            </a>
-          </div>
-        </div>
-      )}
+      </div>
 
       {toggled && !matches && (
         <motion.div
