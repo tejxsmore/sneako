@@ -7,31 +7,33 @@ export default function Navbar() {
   const matches = useMediaQuery("(min-width: 1280px)");
 
   return (
-    <nav className="relative flex justify-between items-center p-6 font-medium">
+    <nav className="relative flex justify-between items-center p-6 sm:pt-12 sm:mx-3 font-medium sm:px-32">
       <div class="flex">
-        <div
-          onClick={() => setToggled((prevToggle) => !prevToggle)}
-          className="space-y-1.5 cursor-pointer z-50 pt-1 pr-6"
-        >
-          <motion.span
-            animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
-            className="block h-0.5 w-8 bg-black"
-          ></motion.span>
-          <motion.span
-            animate={{ width: toggled ? 0 : 32 }}
-            className="block h-0.5 w-6 bg-black"
-          ></motion.span>
-          <motion.span
-            animate={{
-              rotateZ: toggled ? -45 : 0,
-              y: toggled ? -8 : 0,
-              width: toggled ? 32 : 32,
-            }}
-            className="block h-0.5 w-4 bg-black"
-          ></motion.span>
-        </div>
+        {!matches && (
+          <div
+            onClick={() => setToggled((prevToggle) => !prevToggle)}
+            className="space-y-1.5 cursor-pointer z-50 pt-1 pr-6"
+          >
+            <motion.span
+              animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
+              className="block h-0.5 w-8 bg-black"
+            ></motion.span>
+            <motion.span
+              animate={{ width: toggled ? 0 : 32 }}
+              className="block h-0.5 w-6 bg-black"
+            ></motion.span>
+            <motion.span
+              animate={{
+                rotateZ: toggled ? -45 : 0,
+                y: toggled ? -8 : 0,
+                width: toggled ? 32 : 32,
+              }}
+              className="block h-0.5 w-4 bg-black"
+            ></motion.span>
+          </div>
+        )}
         <a href="/">
-          <h1 className="">SNEAKO</h1>
+          <h1 className="">SNEAKO.</h1>
         </a>
       </div>
 
