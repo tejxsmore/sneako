@@ -3,10 +3,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Label from "../components/Label.astro";
 import { featured } from "../../public/store/nike/featured";
 import Shoecard from "../components/Shoecard.astro";
+import Banner from "../components/Banner.astro";
 ---
 
 <MainLayout>
   <div class="p-3 sm:px-32">
+    <Banner />
     <div class="flex flex-wrap justify-center">
       {
         featured.map(
