@@ -14,3 +14,8 @@ To run the website locally, you'll need to clone the repository and type "npm in
 # Usage
 
 This is an E-commerce website for Sneaker lovers. Visitors can view my trending sneakers of companies like Nike, Puma and Adidas of different types. Also, there are running and football shoes availlable on the website.
+
+# TODOS
+-- Cart component
+-- Favorite component
+-- Payment options
