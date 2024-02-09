@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <nav className="text-md bg-light text-dark relative flex justify-between items-center p-6 sm:py-12 font-medium md:px-16 lg:px-36">
-      <div class="flex">
+      <div className="flex">
         {!matches && (
           <div
             onClick={() => setToggled((prevToggle) => !prevToggle)}
@@ -50,15 +50,11 @@ export default function Navbar() {
 
       <div className="flex ">
         <div className="flex cursor-pointer z-50">
-          <a href="/signin" className="mr-6">
-            <span class="material-symbols-outlined">
-              <CgProfile />
-            </span>
+          <a href="/login" className="text-2xl mr-6">
+            <CgProfile />
           </a>
-          <button className="">
-            <span class="material-symbols-outlined">
-              <FiShoppingCart />
-            </span>
+          <button className="text-2xl">
+            <FiShoppingCart />
           </button>
         </div>
       </div>

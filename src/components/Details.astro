@@ -16,6 +16,9 @@ const {
   otherImages,
   description,
 } = Astro.props;
+
+const sizes = [6,7,8,9,10,11,12];
+
 ---
 
 <BrandLayout {title} brand={brand} image={brandLogo}>
@@ -57,6 +60,14 @@ const {
       <p class="text-gray-500 pb-3">(Also includes all applicable duties)</p>
       <p class="md:max-w-xl text-justify pb-3">{description}</p>
       <p class="pb-6">• Color : {color}</p>
+
+      <p class="pb-3">Sizes available (UK)</p>
+      <div class="flex flex-wrap pb-6">
+        {sizes.map(size=>
+        <button class="text-dark border-[1px] border-dark w-10 h-10 rounded-sm mr-2 my-1">{size}</button>
+      )}
+      </div>
+
       <div
         class="md:max-w-xl w-full p-3 text-center rounded-full font-semibold border-[1.5px] border-dark text-dark mb-3"
       >
