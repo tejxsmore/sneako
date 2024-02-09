@@ -1,0 +1,173 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import { products } from "../../public/store/nike/products";
+import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
+
+const {
+  uid,
+  title,
+  brand,
+  brandLogo,
+  price,
+  color,
+  category,
+  image,
+  otherImages,
+  description,
+} = Astro.props;
+---
+
+<BrandLayout {title} brand={brand} image={brandLogo}>
+  <div class="md:flex p-3 md:px-16 lg:px-32 bg-light text-dark">
+    <div class="p-3 md:w-1/2">
+      <!-- <img src={image} alt="img" /> -->
+      <section aria-label="Newest Photos">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"
+            ><FaAngleLeft /></button
+          >
+          <button class="carousel-button next" data-carousel-button="next"
+            ><FaAngleRight /></button
+          >
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src={otherImages[0]} alt="First" />
+            </li>
+            <li class="slide">
+              <img src={otherImages[1]} alt="Second" />
+            </li>
+            <li class="slide">
+              <img src={otherImages[2]} alt="Nature Image #3" />
+            </li>
+            <li class="slide">
+              <img src={otherImages[3]} alt="Nature Image #3" />
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div class="md:w-1/2 p-3 md:mt-0 mt-[450px] sm:pb-64">
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 pb-3">
+        {title}
+      </h1>
+      <p class="pb-3">{category}'s shoes</p>
+      <p class="py-3 text-2xl font-semibold">₹ {price.toLocaleString()}</p>
+      <p class="text-gray-500">incl. of taxes</p>
+      <p class="text-gray-500 pb-3">(Also includes all applicable duties)</p>
+      <p class="md:max-w-xl text-justify pb-3">{description}</p>
+      <p class="pb-6">• Color : {color}</p>
+      <div
+        class="md:max-w-xl w-full p-3 text-center rounded-full font-semibold border-[1.5px] border-dark text-dark mb-3"
+      >
+        Add to cart
+      </div>
+      <button
+        id="buy"
+        class="md:max-w-xl w-full p-3 text-center rounded-full font-semibold border-[1.5px] border-dark hover:border-green bg-dark hover:bg-green text-light"
+      >
+        Buy now
+      </button>
+    </div>
+  </div>
+</BrandLayout>
+
+<script is:inline>
+  const buyBtn = document.querySelector("#buy");
+  buyBtn.addEventListener("click", handleClick);
+
+  function handleClick() {
+    console.log("Button Clicked");
+  }
+
+  const buttons = document.querySelectorAll("[data-carousel-button]");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+      const slides = button
+        .closest("[data-carousel]")
+        .querySelector("[data-slides]");
+
+      const activeSlide = slides.querySelector("[data-active]");
+      let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+      if (newIndex < 0) newIndex = slides.children.length - 1;
+      if (newIndex >= slides.children.length) newIndex = 0;
+
+      slides.children[newIndex].dataset.active = true;
+      delete activeSlide.dataset.active;
+    });
+  });
+</script>
+
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .carousel {
+    position: relative;
+  }
+
+  .carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+  }
+
+  .slide > img {
+    display: block;
+    width: 1/2;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .slide[data-active] {
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+  }
+
+  .carousel-button {
+    position: absolute;
+    z-index: 2;
+    border: none;
+    font-size: 4rem;
+    top: 15px;
+    color: #d0d4ca;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 0 0.5rem;
+  }
+
+  .carousel-button:hover,
+  .carousel-button:focus {
+    color: #a9a9a9;
+  }
+
+  /* .carousel-button:focus {
+      outline: 1px solid black;
+    } */
+
+  .carousel-button.prev {
+    left: 1rem;
+  }
+
+  .carousel-button.next {
+    right: 1rem;
+  }
+</style>

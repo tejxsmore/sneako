@@ -1,0 +1,46 @@
+<div
+  class="flex md:flex-row md:space-x-20 flex-col justify-center bg-light p-3 md:px-16 lg:px-32 md:pb-20"
+>
+  <div id="avatar" class="md:w-1/2 py-20 md:py-0">
+    <img
+      src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/00584b99-c1f5-42f2-90fc-c0208afdc5e6/terminator-high-shoes-04S77G.png"
+      alt="Nike Terminator High"
+      class="rotate-[335deg] w-[340px] sm:w-[520px]"
+    />
+  </div>
+  <div class="items-center my-auto md:w-1/2">
+    <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark p-3">
+      Sneakers are canvases to tell your story
+    </h3>
+    <p class="px-3 text-lg sm:text-xl md:text-2xl font-semibold text-gray">
+      - probably some sneakerhead
+    </p>
+    <div class="p-3 my-8">
+      <a
+        href="/nike"
+        class="px-10 py-5 bg-dark hover:bg-green hover text-light font-semibold rounded-sm"
+        >Explore products</a
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
+
+  #avatar {
+    overflow: hidden;
+    transform: translatey(0px);
+    animation: float 4s ease-in-out infinite;
+  }
+</style>

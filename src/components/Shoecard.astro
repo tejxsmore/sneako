@@ -1,0 +1,26 @@
+---
+import { Image, Picture } from "@astrojs/image/components";
+
+const {
+  id,
+  url,
+  title,
+  price,
+  color,
+  category,
+  image,
+  otherImages,
+  description,
+} = Astro.props;
+---
+
+<a
+  href={url}
+  id="shoecard"
+  class="p-3 m-3 border-2 border-dark text-dark rounded-sm"
+>
+  <img src={image} alt={title} id="img" class="md:w-[263px] w-full" />
+  <h1 class="font-semibold pt-2">{title}</h1>
+  <p class="text-green">{category}'s shoes</p>
+  <p class="font-semibold">₹{price.toLocaleString()}</p>
+</a>

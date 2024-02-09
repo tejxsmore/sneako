@@ -1,0 +1,36 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { id: 0 } },
+    { params: { id: 1 } },
+    { params: { id: 2 } },
+    { params: { id: 3 } },
+    { params: { id: 4 } },
+    { params: { id: 5 } },
+    { params: { id: 6 } },
+    { params: { id: 7 } },
+  ];
+}
+
+const { id } = Astro.params;
+
+import { airforce } from "../../../../../public/store/nike/airforce";
+import Details from "../../../../components/Details.astro";
+---
+
+{
+  id && (
+    <Details
+      uid={airforce[id]?.uid}
+      title={airforce[id]?.title}
+      brand={airforce[id]?.brand}
+      brandLogo={airforce[id].brandLogo}
+      price={airforce[id]?.price}
+      color={airforce[id]?.title}
+      image={airforce[id]?.image}
+      category={airforce[id]?.category}
+      otherImages={airforce[id]?.otherImages}
+      description={airforce[id]?.description}
+    />
+  )
+}

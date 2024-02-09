@@ -1,0 +1,43 @@
+---
+import BrandLayout from "../../../layouts/BrandLayout.astro";
+import { airmax } from "../../../../public/store/nike/airmax";
+import Shoecard from "../../../components/Shoecard.astro";
+---
+
+<BrandLayout
+  title="SNEAKO - Nike Air Max"
+  brand="nike"
+  image="https://static.nike.com/a/images/f_jpg,q_auto:eco/61b4738b-e1e1-4786-8f6c-26aa0008e80b/swoosh-logo-black.png"
+>
+  <div class="">
+    <div class="p-3 flex flex-wrap justify-center bg-light">
+      {
+        airmax.map(
+          ({
+            id,
+            title,
+            price,
+            color,
+            url,
+            category,
+            image,
+            otherImages,
+            description,
+          }) => (
+            <Shoecard
+              {id}
+              {title}
+              {price}
+              {color}
+              {url}
+              {category}
+              {otherImages}
+              {image}
+              {description}
+            />
+          )
+        )
+      }
+    </div>
+  </div>
+</BrandLayout>
