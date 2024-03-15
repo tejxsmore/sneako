@@ -10,7 +10,7 @@ export default function Navbar() {
   const matches = useMediaQuery("(min-width: 1000px)");
 
   return (
-    <nav className="text-md bg-light text-dark relative flex justify-between items-center p-6 sm:py-12 font-medium md:px-16 lg:px-36">
+    <nav className="text-md bg-light text-dark relative flex justify-between items-center p-6 sm:py-12 font-medium md:px-16 lg:px-36 lg:mx-2">
       <div className="flex">
         {!matches && (
           <div

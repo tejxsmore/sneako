@@ -18,13 +18,11 @@ const {
 } = Astro.props;
 
 const sizes = [6,7,8,9,10,11,12];
-
 ---
 
 <BrandLayout {title} brand={brand} image={brandLogo}>
-  <div class="md:flex p-3 md:px-16 lg:px-32 bg-light text-dark">
+  <div class="md:flex p-3 md:px-16 lg:px-32 bg-light text-dark sm:space-x-12">
     <div class="p-3 md:w-1/2">
-      <!-- <img src={image} alt="img" /> -->
       <section aria-label="Newest Photos">
         <div class="carousel" data-carousel>
           <button class="carousel-button prev" data-carousel-button="prev"
@@ -62,9 +60,9 @@ const sizes = [6,7,8,9,10,11,12];
       <p class="pb-6">• Color : {color}</p>
 
       <p class="pb-3">Sizes available (UK)</p>
-      <div class="flex flex-wrap pb-6">
+      <div class="flex flex-wrap pb-6 space-x-3 justify-between sm:justify-start">
         {sizes.map(size=>
-        <button class="text-dark border-[1px] border-dark w-10 h-10 rounded-sm mr-2 my-1">{size}</button>
+        <button class="text-dark border border-dark w-10 h-10 rounded-full text-sm hover:bg-green click:bg-green hover:delay-100 hover:text-light">{size}</button>
       )}
       </div>
 
